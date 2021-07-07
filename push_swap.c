@@ -41,17 +41,16 @@ int	main(int argc, char **argv)
 		printf("b:%d\n", tmp2->num);
 		tmp2 = tmp2->next;
 	}
+	indexation(&a);
 
-	rrr(&a, &b);
-	while (a)
+	t_list	*test;
+	test = a;
+	while (test)
 	{
-		printf("\na:%d", a->num);
-		a = a->next;
+		printf("\nЗначение листа:%d", test->num);
+		printf("    Индекс листа:%d", test->index);
+		test = test->next;
 	}
-	while (b)
-	{
-		printf("\nb:%d", b->num);
-		b = b->next;
-	}
+
 	return (0);
 }
