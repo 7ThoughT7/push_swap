@@ -24,7 +24,7 @@ int	check_index(t_list **list)
 	return (0);
 }
 
-int	min_number(t_list **list, int l_size)
+int	min_number(t_list **list, t_num l_size)
 {
 	int		min_num;
 	int		count;
@@ -33,7 +33,7 @@ int	min_number(t_list **list, int l_size)
 	count = 0;
 	tmp = *list;
 	min_num = check_index(&tmp);
-	while (count < l_size)
+	while (count < l_size.len_list && tmp != NULL)
 	{
 		if ((*tmp).index == -1 && min_num > (*tmp).num)
 			min_num = (*tmp).num;
@@ -44,9 +44,8 @@ int	min_number(t_list **list, int l_size)
 	return (min_num);
 }
 
-void	indexation(t_list **list)
+void	indexation(t_list **list, t_num num)
 {
-	int		l_size;
 	int		min_num;
 	int		index;
 	t_list	*tmp;
@@ -54,12 +53,12 @@ void	indexation(t_list **list)
 
 	index = 0;
 	tmp = *list;
-	l_size = ft_lstsize(tmp);
-	ft_bzero(&tmp, l_size);
-	while (index < l_size)
+	num.len_list = ft_lstsize(tmp);
+	ft_bzero(&tmp, num.len_list);
+	while (index < num.len_list)
 	{
-		tmp = *list;
-		min_num = min_number(&tmp, l_size);
+//		tmp = *list;
+		min_num = min_number(&tmp, num);
 		tmp2 = *list;
 		while (tmp2)
 		{

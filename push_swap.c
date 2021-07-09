@@ -6,7 +6,10 @@ int	main(int argc, char **argv)
 	t_list	*tmp2;
 	t_list	*a;
 	t_list	*b;
+//	t_list	*test;
 	int		count;
+	int		asd;
+	t_num	num;
 
 	a = malloc(sizeof(t_list));
 	b = malloc(sizeof(t_list));
@@ -35,21 +38,28 @@ int	main(int argc, char **argv)
 		printf("a:%d\n", tmp->num);
 		tmp = tmp->next;
 	}
-	tmp2 = b;
+//	tmp2 = b;
+//	while (tmp2)
+//	{
+//		printf("b:%d\n", tmp2->num);
+//		tmp2 = tmp2->next;
+//	}
+	indexation(&a, num);
+//	test = a;
+//	while (test)
+//	{
+//		printf("\nЗначение листа:%d  Индекс листа:%d", test->num, test->index);
+//		test = test->next;
+//	}
+	tmp = NULL;
+	tmp = a;
+	best_value(&tmp, num);
+	tmp2 = NULL;
+	tmp2 = a;
 	while (tmp2)
 	{
-		printf("b:%d\n", tmp2->num);
+		printf("%d\n", tmp2->max_num_range);
 		tmp2 = tmp2->next;
-	}
-	indexation(&a);
-
-	t_list	*test;
-	test = a;
-	while (test)
-	{
-		printf("\nЗначение листа:%d", test->num);
-		printf("    Индекс листа:%d", test->index);
-		test = test->next;
 	}
 
 	return (0);
