@@ -72,16 +72,6 @@ int	main(int argc, char **argv)
 	tmp = NULL;
 	tmp = a;
 	push_list_b(&tmp, &b, &num);
-	while (a)
-	{
-		printf("\n\na:%d", a->value);
-		a = a->next;
-	}
-	while (b)
-	{
-		printf("\n\nb:%d", b->value);
-		b = b->next;
-	}
 
 	return (0);
 }
