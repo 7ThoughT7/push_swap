@@ -9,7 +9,6 @@ void	ra(t_list **a)
 	tmp->next = NULL;
 	ft_lstadd_back(a, tmp);
 	write(1, "ra\n", 3); //удалить
-
 }
 
 void	rb(t_list **b)

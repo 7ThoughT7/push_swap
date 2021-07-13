@@ -25,17 +25,17 @@ int	main(int argc, char **argv)
 		count++;
 	}
 
-	count = 1;
-	while (argv[count] != NULL)
-	{
-		tmp = ft_lstnew(ft_atoi(argv[count]));
-		ft_lstadd_back(&b, tmp);
-		count++;
-	}
+//	count = 1;
+//	while (argv[count] != NULL)
+//	{
+//		tmp = ft_lstnew(ft_atoi(argv[count]));
+//		ft_lstadd_back(&b, tmp);
+//		count++;
+//	}
 	tmp = a;
 	while (tmp)
 	{
-		printf("a:%d\n", tmp->num);
+		printf("a:%d\n", tmp->value);
 		tmp = tmp->next;
 	}
 //	tmp2 = b;
@@ -44,22 +44,43 @@ int	main(int argc, char **argv)
 //		printf("b:%d\n", tmp2->num);
 //		tmp2 = tmp2->next;
 //	}
-	indexation(&a, num);
+	indexation(&a, &num);
 //	test = a;
 //	while (test)
 //	{
 //		printf("\nЗначение листа:%d  Индекс листа:%d", test->num, test->index);
 //		test = test->next;
 //	}
-	tmp = NULL;
-	tmp = a;
-	best_value(&tmp, num);
+//	tmp = NULL;
+//	tmp = a;
+//	tmp2 = NULL;
+//	tmp2 = a;
+//	while (tmp2)
+//	{
+//		best_index(&tmp, num);
+//		printf("%d\n", tmp2->max_num_range);
+//		tmp2 = tmp2->next;
+//	}
 	tmp2 = NULL;
 	tmp2 = a;
 	while (tmp2)
 	{
-		printf("%d\n", tmp2->max_num_range);
+		search_max_range(&tmp2, &num);
+//		printf("\n%d", tmp2->num_range);
 		tmp2 = tmp2->next;
+	}
+	tmp = NULL;
+	tmp = a;
+	push_list_b(&tmp, &b, &num);
+	while (a)
+	{
+		printf("\n\na:%d", a->value);
+		a = a->next;
+	}
+	while (b)
+	{
+		printf("\n\nb:%d", b->value);
+		b = b->next;
 	}
 
 	return (0);
