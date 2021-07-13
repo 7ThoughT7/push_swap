@@ -109,21 +109,21 @@ void	search_start(t_list **list, t_num *num)
 void	push_b(t_list **list_a, t_list **list_b, t_num *num)
 {
 	int	len;
-	t_list	*tmp1;
-	t_list	*tmp2;
-
-	tmp1 = *list_a;
-	tmp2 = *list_b;
+//	t_list	*tmp1;
+//	t_list	*tmp2;
+//
+//	tmp1 = *list_a;
+//	tmp2 = *list_b;
 	len = num->len_list;
 	while (len--)
 	{
-		if (tmp1->bool_v == 1)
-			ra(&tmp1);
+		if ((*list_a)->bool_v == 1)
+			ra(list_a);
 		else
-			pb(&tmp1, &tmp2);
+			pb(list_a, list_b);
 	}
-	tmp1 = *list_a;
-	tmp2 = *list_b;
+//	tmp1 = *list_a;
+//	tmp2 = *list_b;
 }
 
 void	push_list_b(t_list **list_a, t_list **list_b, t_num *num)
@@ -137,4 +137,15 @@ void	push_list_b(t_list **list_a, t_list **list_b, t_num *num)
 	zero_bool_list(&tmp2);
 	search_start(&tmp2, num);
 	push_b (list_a,list_b, num);
+	while (*list_a)					/* удалить */
+	{
+		printf("\na:%d", (*list_a)->value);
+		(*list_a) = (*list_a)->next;
+	}
+	while (*list_b)					/* удалить */
+	{
+		printf("\nb:%d", (*list_b)->value);
+		(*list_b) = (*list_b)->next;
+	}
+
 }
