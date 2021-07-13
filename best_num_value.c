@@ -137,15 +137,15 @@ void	push_list_b(t_list **list_a, t_list **list_b, t_num *num)
 	zero_bool_list(&tmp2);
 	search_start(&tmp2, num);
 	push_b (list_a,list_b, num);
-	while (*list_a)					/* удалить */
-	{
-		printf("\na:%d", (*list_a)->value);
-		(*list_a) = (*list_a)->next;
-	}
-	while (*list_b)					/* удалить */
-	{
-		printf("\nb:%d", (*list_b)->value);
-		(*list_b) = (*list_b)->next;
-	}
-
+//	while (*list_a)					/* удалить */
+//	{
+//		printf("\na:%d", (*list_a)->value);
+//		(*list_a) = (*list_a)->next;
+//	}
+//	while (*list_b)					/* удалить */
+//	{
+//		printf("\nb:%d", (*list_b)->value);
+//		(*list_b) = (*list_b)->next;
+//	}
+	search_best_option(list_a, list_b, num);
 }

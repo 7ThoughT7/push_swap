@@ -22,6 +22,8 @@ typedef struct s_num_val
 	int	value;
 	int step;
 	int len_list;
+	int	len_a;
+	int len_b;
 	int val_ran;
 	int	max_num_range;
 }		t_num;
@@ -33,6 +35,7 @@ int		ft_atoi(const char *s);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnum(t_list *lst, t_num num);
 void	zero_bool_list(t_list **list);
+void	zero_range_list(t_list **list);
 
 
 void	sa(t_list **a);
@@ -53,5 +56,7 @@ void	best_index(t_list **list, t_num num);
 void	max_range(t_list **list, t_num *num);
 void	push_list_b(t_list **list_a, t_list **list_b, t_num *num);
 void	search_start(t_list **list, t_num *num);
+void	marking(t_list **list, t_num *num);
+void	search_best_option(t_list **list_a, t_list **list_b, t_num *num);
 
 # endif
