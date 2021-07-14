@@ -12,6 +12,7 @@ typedef struct s_stack
 	int				value;
 	int 			index;
 	int 			bool_v;
+	int				steps;
 	int 			num_range;
 	struct s_stack*	next;
 }					t_list;
@@ -20,7 +21,6 @@ typedef struct s_num_val
 {
 	int	count;
 	int	value;
-	int step;
 	int len_list;
 	int	len_a;
 	int len_b;
