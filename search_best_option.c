@@ -1,33 +1,31 @@
 #include "push_swap.h"
 
-int	min_steps(t_list **list_b, t_num *num)
+void	push_BinA(t_list **list_a, t_list **list_b, t_num *num)
 {
-	t_list	*tmp2;
-	int 	count;
+	int	range_a;
+	int range_b;
+	int bool_a;
+	int bool_b;
 
-	tmp2 = *list_b;
-	count = tmp2->steps;
-	while (tmp2)
-	{
-		if (tmp2->steps < count)
-			count = tmp2->steps;
-		tmp2 = tmp2->next;
-	}
-	while ((*list_b)->steps != count)
-		(*list_b) = (*list_b)->next;
-	return (count);
+	range_a = (*list_a)->num_range;
+	range_b = (*list_b)->num_range;
+	bool_a = (*list_a)->bool_v;
+	bool_b = (*list_b)->bool_v;
+	if (bool_a == bool_b)
+		rrr_rr(list_a, list_b);
+	
+
 }
 
 void	push_list_a(t_list **list_a, t_list **list_b, t_num *num)
 {
 	t_list	*tmp1;
 	t_list	*tmp2;
-	int 	count;
 
 	tmp1 = *list_a;
 	tmp2 = *list_b;
-	count = min_steps(&tmp2, num);
-
+	min_steps(&tmp1, &tmp2, num);
+	
 }
 
 void	best_way(t_list **list_a, t_list **list_b, t_num *num)
@@ -57,12 +55,12 @@ void	best_way(t_list **list_a, t_list **list_b, t_num *num)
 			tmp2->steps = 2147483647; //прописать мах инт
 		tmp2 = tmp2->next;
 	}
-	while (*list_b)
-	{
-		printf("\nvalue:%d ", (*list_b)->value);
-		printf("steps:%d ", (*list_b)->steps);
-		(*list_b) = (*list_b)->next;
-	}
+//	while (*list_b)
+//	{
+//		printf("\nvalue:%d ", (*list_b)->value);
+//		printf("steps:%d ", (*list_b)->steps);
+//		(*list_b) = (*list_b)->next;
+//	}
 }
 
 void	marking(t_list **list, t_num *num)
@@ -109,4 +107,5 @@ void	search_best_option(t_list **list_a, t_list **list_b, t_num *num)
 	marking(&tmp1, num);
 	marking(&tmp2, num);
 	best_way(list_a, list_b, num);
+	push_list_a(list_a, list_b, num);
 }
