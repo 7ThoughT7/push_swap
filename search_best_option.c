@@ -32,35 +32,35 @@ void	best_way(t_list **list_a, t_list **list_b, t_num *num)
 {
 	t_list	*tmp1;
 	t_list	*tmp2;
-	int 	i;
+	int 	index;
 	int 	len;
 
 	tmp1 = *list_a;
 	tmp2 = *list_b;
-	i = 0;
+	index = 0;
 	while (tmp2)
 	{
 		len = ft_lstsize(*list_a);
-		i = tmp2->index + 1;
-		while (len && tmp1->index != i)
+		index = nearest_index(list_a, tmp2->index);
+		while (len && tmp1->index != index)
 		{
 			tmp1 = tmp1->next;
 			if (tmp1 == 0)
 				tmp1 = *list_a;
 			len--;
 		}
-		if (tmp1->index == i)
+		if (tmp1->index == index)
 			tmp2->steps = tmp1->num_range + tmp2->num_range;
 		else
 			tmp2->steps = 2147483647; //прописать мах инт
 		tmp2 = tmp2->next;
 	}
-//	while (*list_b)
-//	{
-//		printf("\nvalue:%d ", (*list_b)->value);
-//		printf("steps:%d ", (*list_b)->steps);
-//		(*list_b) = (*list_b)->next;
-//	}
+	while (*list_b)   /* удалить */
+	{
+		printf("\nvalue:%d ", (*list_b)->value);
+		printf("steps:%d ", (*list_b)->steps);
+		(*list_b) = (*list_b)->next;
+	}
 }
 
 void	marking(t_list **list, t_num *num)
@@ -107,5 +107,5 @@ void	search_best_option(t_list **list_a, t_list **list_b, t_num *num)
 	marking(&tmp1, num);
 	marking(&tmp2, num);
 	best_way(list_a, list_b, num);
-	push_list_a(list_a, list_b, num);
+//	push_list_a(list_a, list_b, num);
 }

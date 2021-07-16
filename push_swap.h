@@ -61,5 +61,6 @@ void	push_list_b(t_list **list_a, t_list **list_b, t_num *num);
 void	search_start(t_list **list, t_num *num);
 void	marking(t_list **list, t_num *num);
 void	search_best_option(t_list **list_a, t_list **list_b, t_num *num);
+int		nearest_index(t_list **list_a, int index_b);
 
 # endif
