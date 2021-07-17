@@ -52,6 +52,9 @@ void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
 void	rrr_rr(t_list **list_a, t_list **list_b);
+void	rab_or_rrab(t_list **list_a, t_list **list_b);
+void	ra_or_rra(t_list **list_a);
+void	rb_or_rrb(t_list **list_b);
 
 void	indexation(t_list **list, t_num *num);
 void 	search_max_range(t_list **list, t_num *num);

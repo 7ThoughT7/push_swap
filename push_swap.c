@@ -32,12 +32,6 @@ int	main(int argc, char **argv)
 //		ft_lstadd_back(&b, tmp);
 //		count++;
 //	}
-	tmp = a;
-	while (tmp)
-	{
-		printf("a:%d\n", tmp->value);
-		tmp = tmp->next;
-	}
 //	tmp2 = b;
 //	while (tmp2)
 //	{
@@ -73,5 +67,12 @@ int	main(int argc, char **argv)
 	tmp = a;
 	push_list_b(&tmp, &b, &num);
 
+	tmp = NULL;
+	tmp = a;
+	while (tmp)
+	{
+		printf("a:%d\n", tmp->value);
+		tmp = tmp->next;
+	}
 	return (0);
 }

@@ -2,19 +2,22 @@
 
 void	push_BinA(t_list **list_a, t_list **list_b, t_num *num)
 {
-	int	range_a;
-	int range_b;
 	int bool_a;
 	int bool_b;
 
-	range_a = (*list_a)->num_range;
-	range_b = (*list_b)->num_range;
 	bool_a = (*list_a)->bool_v;
 	bool_b = (*list_b)->bool_v;
 	if (bool_a == bool_b)
+	{
 		rrr_rr(list_a, list_b);
-	
-
+		rab_or_rrab(list_a, list_b);
+	}
+	else
+	{
+		ra_or_rra(list_a);
+		rb_or_rrb(list_b);
+	}
+	pa(list_a, list_b);
 }
 
 void	push_list_a(t_list **list_a, t_list **list_b, t_num *num)
@@ -25,7 +28,7 @@ void	push_list_a(t_list **list_a, t_list **list_b, t_num *num)
 	tmp1 = *list_a;
 	tmp2 = *list_b;
 	min_steps(&tmp1, &tmp2, num);
-	
+	push_BinA(&tmp1, &tmp2, num);
 }
 
 void	best_way(t_list **list_a, t_list **list_b, t_num *num)
@@ -55,12 +58,12 @@ void	best_way(t_list **list_a, t_list **list_b, t_num *num)
 			tmp2->steps = 2147483647; //прописать мах инт
 		tmp2 = tmp2->next;
 	}
-	while (*list_b)   /* удалить */
-	{
-		printf("\nvalue:%d ", (*list_b)->value);
-		printf("steps:%d ", (*list_b)->steps);
-		(*list_b) = (*list_b)->next;
-	}
+//	while (*list_b)   /* удалить */
+//	{
+//		printf("\nvalue:%d ", (*list_b)->value);
+//		printf("steps:%d ", (*list_b)->steps);
+//		(*list_b) = (*list_b)->next;
+//	}
 }
 
 void	marking(t_list **list, t_num *num)
@@ -87,14 +90,14 @@ void	marking(t_list **list, t_num *num)
 		tmp->num_range = i--;
 		tmp = tmp->next;
 	}
-	while (*list)					/* удалить */
-	{
-		printf("\nvalue:%d ", (*list)->value);
-		printf("num_range:%d ", (*list)->num_range);
-		printf("bool:%d ", (*list)->bool_v);
-		printf("index:%d", (*list)->index);
-		(*list) = (*list)->next;
-	}
+//	while (*list)					/* удалить */
+//	{
+//		printf("\nvalue:%d ", (*list)->value);
+//		printf("num_range:%d ", (*list)->num_range);
+//		printf("bool:%d ", (*list)->bool_v);
+//		printf("index:%d", (*list)->index);
+//		(*list) = (*list)->next;
+//	}
 }
 
 void	search_best_option(t_list **list_a, t_list **list_b, t_num *num)
@@ -107,5 +110,6 @@ void	search_best_option(t_list **list_a, t_list **list_b, t_num *num)
 	marking(&tmp1, num);
 	marking(&tmp2, num);
 	best_way(list_a, list_b, num);
-//	push_list_a(list_a, list_b, num);
+	push_list_a(list_a, list_b, num);
+
 }

@@ -59,7 +59,7 @@ void	min_steps(t_list **list_a, t_list **list_b, t_num *num)
 	while ((*list_b)->steps != count)
 		(*list_b) = (*list_b)->next;
 	index_b = (*list_b)->index;
-	index_a = index_b + 1;
+	index_a = nearest_index(list_a, index_b);
 	while ((*list_a)->index != index_a)
 		(*list_a) = (*list_a)->next;
 }
