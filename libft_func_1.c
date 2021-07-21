@@ -43,25 +43,30 @@ void	zero_range_list(t_list **list)
 
 void	min_steps(t_list **list_a, t_list **list_b, t_num *num)
 {
+	t_list	*tmp;
 	t_list	*tmp2;
-	int 	count;
-	int 	index_b;
-	int 	index_a;
+	int 	min_step;
 
+	tmp = *list_a;
 	tmp2 = *list_b;
-	count = tmp2->steps;
+	min_step = tmp2->steps;
 	while (tmp2)
 	{
-		if (tmp2->steps < count)
-			count = tmp2->steps;
+		if (tmp2->steps < min_step)
+			min_step = tmp2->steps;
 		tmp2 = tmp2->next;
 	}
-	while ((*list_b)->steps != count)
-		(*list_b) = (*list_b)->next;
-	index_b = (*list_b)->index;
-	index_a = nearest_index(list_a, index_b);
-	while ((*list_a)->index != index_a)
-		(*list_a) = (*list_a)->next;
+	tmp2 = *list_b;
+	while (tmp2->steps != min_step)
+		tmp2 = tmp2->next;
+	num->step_b = tmp2->num_range;
+	num->bool_b = tmp2->bool_v;
+	num->index_b = tmp2->index;
+	num->index_a = nearest_index(list_a, num, num->index_b);
+	while (tmp->index != num->index_a)
+		tmp = tmp->next;
+	num->step_a = tmp->num_range;
+	num->bool_a = tmp->bool_v;
 }
 
 int	min_r(a, b)

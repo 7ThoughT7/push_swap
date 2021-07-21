@@ -2,33 +2,17 @@
 
 void	push_BinA(t_list **list_a, t_list **list_b, t_num *num)
 {
-	int bool_a;
-	int bool_b;
-
-	bool_a = (*list_a)->bool_v;
-	bool_b = (*list_b)->bool_v;
-	if (bool_a == bool_b)
+	if (num->bool_a == num->bool_b)
 	{
-		rrr_rr(list_a, list_b);
-		rab_or_rrab(list_a, list_b);
+		rrr_rr(list_a, list_b, num);
+		rab_or_rrab(list_a, list_b, num);
 	}
 	else
 	{
-		ra_or_rra(list_a);
-		rb_or_rrb(list_b);
+		ra_or_rra(list_a, num);
+		rb_or_rrb(list_b, num);
 	}
 	pa(list_a, list_b);
-}
-
-void	push_list_a(t_list **list_a, t_list **list_b, t_num *num)
-{
-	t_list	*tmp1;
-	t_list	*tmp2;
-
-	tmp1 = *list_a;
-	tmp2 = *list_b;
-	min_steps(&tmp1, &tmp2, num);
-	push_BinA(&tmp1, &tmp2, num);
 }
 
 void	best_way(t_list **list_a, t_list **list_b, t_num *num)
@@ -44,7 +28,7 @@ void	best_way(t_list **list_a, t_list **list_b, t_num *num)
 	while (tmp2)
 	{
 		len = ft_lstsize(*list_a);
-		index = nearest_index(list_a, tmp2->index);
+		index = nearest_index(list_a, num, tmp2->index);
 		while (len && tmp1->index != index)
 		{
 			tmp1 = tmp1->next;
@@ -52,10 +36,7 @@ void	best_way(t_list **list_a, t_list **list_b, t_num *num)
 				tmp1 = *list_a;
 			len--;
 		}
-		if (tmp1->index == index)
-			tmp2->steps = tmp1->num_range + tmp2->num_range;
-		else
-			tmp2->steps = 2147483647; //прописать мах инт
+		tmp2->steps = tmp1->num_range + tmp2->num_range;
 		tmp2 = tmp2->next;
 	}
 //	while (*list_b)   /* удалить */
@@ -66,7 +47,7 @@ void	best_way(t_list **list_a, t_list **list_b, t_num *num)
 //	}
 }
 
-void	marking(t_list **list, t_num *num)
+void	marking(t_list **list)
 {
 	int len;
 	int	i;
@@ -95,6 +76,7 @@ void	marking(t_list **list, t_num *num)
 //		printf("\nvalue:%d ", (*list)->value);
 //		printf("num_range:%d ", (*list)->num_range);
 //		printf("bool:%d ", (*list)->bool_v);
+
 //		printf("index:%d", (*list)->index);
 //		(*list) = (*list)->next;
 //	}
@@ -107,9 +89,12 @@ void	search_best_option(t_list **list_a, t_list **list_b, t_num *num)
 
 	tmp1 = *list_a;
 	tmp2 = *list_b;
-	marking(&tmp1, num);
-	marking(&tmp2, num);
-	best_way(list_a, list_b, num);
-	push_list_a(list_a, list_b, num);
-
+	while ((*list_b) != NULL)
+	{
+		marking(list_a);
+		marking(list_b);
+		best_way(list_a, list_b, num);
+		min_steps(list_a, list_b, num);
+		push_BinA(list_a, list_b, num);
+	}
 }

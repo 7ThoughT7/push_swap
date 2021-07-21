@@ -22,8 +22,12 @@ typedef struct s_num_val
 	int	count;
 	int	value;
 	int len_list;
-	int	len_a;
-	int len_b;
+	int index_a;
+	int index_b;
+	int	step_a;
+	int step_b;
+	int bool_a;
+	int bool_b;
 	int val_ran;
 	int	max_num_range;
 }		t_num;
@@ -38,6 +42,7 @@ void	zero_bool_list(t_list **list);
 void	zero_range_list(t_list **list);
 void	min_steps(t_list **list_a, t_list **list_b, t_num *num);
 int		min_r(int a, int b);
+char	**ft_split(char *s, char c);
 
 
 void	sa(t_list **a);
@@ -45,16 +50,16 @@ void	sb(t_list **b);
 void	ss(t_list **a, t_list **b);
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
-void	ra(t_list **a);
-void	rb(t_list **b);
+void	ra(t_list **a, int i);
+void	rb(t_list **b, int i);
 void	rr(t_list **a, t_list **b);
-void	rra(t_list **a);
-void	rrb(t_list **b);
+void	rra(t_list **a, int i);
+void	rrb(t_list **b, int i);
 void	rrr(t_list **a, t_list **b);
-void	rrr_rr(t_list **list_a, t_list **list_b);
-void	rab_or_rrab(t_list **list_a, t_list **list_b);
-void	ra_or_rra(t_list **list_a);
-void	rb_or_rrb(t_list **list_b);
+void	rrr_rr(t_list **list_a, t_list **list_b, t_num *num);
+void	rab_or_rrab(t_list **list_a, t_list **list_b, t_num *num);
+void	ra_or_rra(t_list **list_a, t_num *num);
+void	rb_or_rrb(t_list **list_b, t_num *num);
 
 void	indexation(t_list **list, t_num *num);
 void 	search_max_range(t_list **list, t_num *num);
@@ -62,8 +67,9 @@ void	best_index(t_list **list, t_num *num);
 void	max_range(t_list **list, t_num *num);
 void	push_list_b(t_list **list_a, t_list **list_b, t_num *num);
 void	search_start(t_list **list, t_num *num);
-void	marking(t_list **list, t_num *num);
+void	marking(t_list **list);
 void	search_best_option(t_list **list_a, t_list **list_b, t_num *num);
-int		nearest_index(t_list **list_a, int index_b);
+int		nearest_index(t_list **list_a, t_num *num, int index_b);
+void	stack_scrolling(t_list **list, t_num *num);
 
 # endif

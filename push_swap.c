@@ -6,10 +6,9 @@ int	main(int argc, char **argv)
 	t_list	*tmp2;
 	t_list	*a;
 	t_list	*b;
-//	t_list	*test;
 	int		count;
-	int		asd;
 	t_num	num;
+	char	**str;
 
 	a = malloc(sizeof(t_list));
 	b = malloc(sizeof(t_list));
@@ -18,61 +17,40 @@ int	main(int argc, char **argv)
 	count = 1;
 	a = NULL;
 	b = NULL;
-	while (argv[count] != NULL)
+	if (argc == 2)
 	{
-		tmp = ft_lstnew(ft_atoi(argv[count]));
-		ft_lstadd_back(&a, tmp);
-		count++;
+		str = ft_split(argv[1], ' ');
+		while (*str != NULL)
+		{
+			tmp = ft_lstnew(ft_atoi(*str));
+			ft_lstadd_back(&a, tmp);
+			count++;
+		}
 	}
-
-//	count = 1;
-//	while (argv[count] != NULL)
-//	{
-//		tmp = ft_lstnew(ft_atoi(argv[count]));
-//		ft_lstadd_back(&b, tmp);
-//		count++;
-//	}
-//	tmp2 = b;
-//	while (tmp2)
-//	{
-//		printf("b:%d\n", tmp2->num);
-//		tmp2 = tmp2->next;
-//	}
+	if (argc > 2)
+	{
+		while (*str != NULL)
+		{
+			tmp = ft_lstnew(ft_atoi(*str));
+			ft_lstadd_back(&a, tmp);
+			count++;
+		}
+	}
 	indexation(&a, &num);
-//	test = a;
-//	while (test)
-//	{
-//		printf("\nЗначение листа:%d  Индекс листа:%d", test->num, test->index);
-//		test = test->next;
-//	}
-//	tmp = NULL;
-//	tmp = a;
-//	tmp2 = NULL;
-//	tmp2 = a;
-//	while (tmp2)
-//	{
-//		best_index(&tmp, num);
-//		printf("%d\n", tmp2->max_num_range);
-//		tmp2 = tmp2->next;
-//	}
-	tmp2 = NULL;
 	tmp2 = a;
 	while (tmp2)
 	{
 		search_max_range(&tmp2, &num);
-//		printf("\n%d", tmp2->num_range);
 		tmp2 = tmp2->next;
 	}
 	tmp = NULL;
 	tmp = a;
 	push_list_b(&tmp, &b, &num);
-
-	tmp = NULL;
-	tmp = a;
-	while (tmp)
-	{
-		printf("a:%d\n", tmp->value);
-		tmp = tmp->next;
-	}
+	stack_scrolling(&tmp, &num);
+//	while (tmp)
+//	{
+//		printf("%d\n", tmp->value);
+//		tmp = tmp->next;
+//	}
 	return (0);
 }

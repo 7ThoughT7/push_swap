@@ -24,7 +24,7 @@ int	check_index(t_list **list)
 	return (0);
 }
 
-int	min_number(t_list **list, t_num *l_size)
+int	min_number(t_list **list, t_num *num)
 {
 	int		min_num;
 	int		count;
@@ -33,7 +33,7 @@ int	min_number(t_list **list, t_num *l_size)
 	count = 0;
 	tmp = *list;
 	min_num = check_index(&tmp);
-	while (count < l_size->len_list && tmp != NULL)
+	while (count < num->len_list && tmp != NULL)
 	{
 		if ((*tmp).index == -1 && min_num > (*tmp).value)
 			min_num = (*tmp).value;
