@@ -43,7 +43,7 @@ void	zero_range_list(t_list **list);
 void	min_steps(t_list **list_a, t_list **list_b, t_num *num);
 int		min_r(int a, int b);
 char	**ft_split(char *s, char c);
-
+void	ft_lstclear(t_list **lst);
 
 void	sa(t_list **a);
 void	sb(t_list **b);

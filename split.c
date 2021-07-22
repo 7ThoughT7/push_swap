@@ -64,7 +64,7 @@ static char	**filling(char **str, char *s, char c)
 			k = 0;
 			while (s[i] != c && s[i])
 				str[j][k++] = s[i++];
-			str[j][k++] = '\0';
+			str[j][k] = '\0';
 			j++;
 		}
 		else

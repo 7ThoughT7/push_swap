@@ -17,21 +17,30 @@ int	main(int argc, char **argv)
 	count = 1;
 	a = NULL;
 	b = NULL;
+	if (argc == 1)
+		exit(0);
 	if (argc == 2)
 	{
 		str = ft_split(argv[1], ' ');
-		while (*str != NULL)
+		if (str == NULL)
+			exit(0);
+		while (*str)
 		{
 			tmp = ft_lstnew(ft_atoi(*str));
+			if (tmp == NULL)
+			{
+				ft_lstclear(&a);
+				exit(0);
+			}
 			ft_lstadd_back(&a, tmp);
-			count++;
+			str++;
 		}
 	}
 	if (argc > 2)
 	{
-		while (*str != NULL)
+		while (argv[count])
 		{
-			tmp = ft_lstnew(ft_atoi(*str));
+			tmp = ft_lstnew(ft_atoi(argv[count]));
 			ft_lstadd_back(&a, tmp);
 			count++;
 		}
