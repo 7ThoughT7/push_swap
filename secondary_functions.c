@@ -32,3 +32,31 @@ void	stack_scrolling(t_list **list, t_num *num)
 		while ((*list)->index != 0)
 			ra(list, 1);
 }
+
+void	sorting_3(t_list **a)
+{
+	int temp;
+	int temp2;
+	int temp3;
+
+	temp = (*a)->value;
+	temp2 = (*a)->next->value;
+	temp3 = (*a)->next->next->value;
+
+	if ((((temp < temp2) && (temp < temp3) && (temp2 > temp3))))
+	{
+		sa(a);
+		ra(a, 1);
+	}
+	else if (((temp > temp2) && (temp > temp3) && (temp2 > temp3)))
+	{
+		ra(a, 1);
+		sa(a);
+	}
+	else if (((temp > temp2) && (temp > temp3) && (temp2 < temp3)))
+		ra(a, 1);
+	else if (((temp > temp2) && (temp2 < temp3) && (temp < temp3)))
+		sa(a);
+	else if ((temp3 < temp2) && (temp2 > temp))
+		rra(a, 1);
+}
