@@ -17,3 +17,9 @@ void	ft_lstclear(t_list **lst)
 		*lst = tmp;
 	}
 }
+
+void	error(void)
+{
+	write(1, "ERROR\n", 6);
+	exit(0);
+}

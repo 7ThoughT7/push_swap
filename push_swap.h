@@ -43,6 +43,8 @@ void	min_steps(t_list **list_a, t_list **list_b, t_num *num);
 int		min_r(int a, int b);
 char	**ft_split(char *s, char c);
 void	ft_lstclear(t_list **lst);
+int		ft_isdigit(int c);
+void	error(void);
 
 void	sa(t_list **a);
 void	sb(t_list **b);
@@ -70,5 +72,6 @@ void	search_best_option(t_list **list_a, t_list **list_b, t_num *num);
 int		nearest_index(t_list **list_a, t_num *num, int index_b);
 void	stack_scrolling(t_list **list, t_num *num);
 void	sorting_3(t_list **a);
+void	parser(t_list **a, char **str);
 
 # endif

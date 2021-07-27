@@ -46,14 +46,15 @@ static void	read_argv(int argc, char **argv, t_list **a)
 	{
 		str = ft_split(argv[count], ' ');
 		if (str == NULL)
-			exit(0);
+			error();
 		while (*str)
 		{
+			parser(a, str);
 			tmp = ft_lstnew(ft_atoi(*str));
 			if (tmp == NULL)
 			{
 				ft_lstclear(a);
-				exit(0);
+				error();
 			}
 			ft_lstadd_back(a, tmp);
 			str++;
