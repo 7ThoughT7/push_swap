@@ -1,9 +1,8 @@
 NAME	= push_swap
 HEADER	= push_swap.h
 
-LIST		= libft_func_0.c libft_func_1.c libft_func_2.c indexation.c best_num_value.c push_swap.c \
-			secondary_functions.c sort_commands_0.c sort_commands_1.c sort_commands_2.c split.c search_best_option.c \
-			parser.c
+LIST		= libft_func_0.c libft_func_1.c indexation.c best_num_value.c push_swap.c \
+			secondary_functions.c sort_commands_0.c sort_commands_1.c sort_commands_2.c split.c search_best_option.c
 
 OBJ			= $(LIST:.c=.o)
 

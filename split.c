@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static int	frst_mem(char *s, char c)
+static int	frst_mem(const char *s, char c)
 {
 	int	i;
 	int	tmp;
@@ -20,7 +20,7 @@ static int	frst_mem(char *s, char c)
 	return (tmp);
 }
 
-static char	**two_mem(char **str, char *s, char c)
+static char	**two_mem(char **str, const char *s, char c)
 {
 	int	len;
 	int	i;
@@ -49,7 +49,7 @@ static char	**two_mem(char **str, char *s, char c)
 	return (str);
 }
 
-static char	**filling(char **str, char *s, char c)
+static char	**filling(char **str, const char *s, char c)
 {
 	int		i;
 	int		j;
@@ -98,3 +98,23 @@ char	**ft_split(char *s, char c)
 	filling(str, s, c);
 	return (str);
 }
+
+//int main(int argc, char **argv)
+//{
+//	char	**d;
+//	int		i;
+//
+//	i = 1;
+//	while (i < argc)
+//	{
+//		d = ft_split(argv[i], ' ');
+//		i++;
+//	}
+//	while (*d)
+//	{
+//		printf("%s\n", *d);
+//		d++;
+//	}
+//	sleep(20);
+//	return (0);
+//}

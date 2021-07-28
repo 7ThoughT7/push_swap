@@ -9,7 +9,7 @@ void	ra(t_list **a, int i)
 	tmp->next = NULL;
 	ft_lstadd_back(a, tmp);
 	if (i == 1)
-		write(1, "ra\n", 3); //удалить
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_list **b, int i)
@@ -21,7 +21,7 @@ void	rb(t_list **b, int i)
 	tmp->next = NULL;
 	ft_lstadd_back(b, tmp);
 	if (i == 1)
-		write(1, "rb\n", 3); //удалить
+		write(1, "rb\n", 3);
 
 }
 
@@ -29,7 +29,7 @@ void	rr(t_list **a, t_list **b)
 {
 	ra(a, 0);
 	ra(b, 0);
-	write(1, "rr\n", 3); //удалить
+	write(1, "rr\n", 3);
 
 }
 
@@ -51,7 +51,7 @@ void	rra(t_list **a, int i)
 	tmp->next = *a;
 	*a = tmp;
 	if (i == 1)
-		write(1, "rra\n", 4); //удалить
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_list **b, int i)
@@ -72,5 +72,5 @@ void	rrb(t_list **b, int i)
 	tmp->next = *b;
 	*b = tmp;
 	if (i == 1)
-		write(1, "rrb\n", 4); //удалить
+		write(1, "rrb\n", 4);
 }

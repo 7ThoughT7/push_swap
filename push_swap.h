@@ -5,8 +5,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#define STACK_ERROR "stack error"
-
 typedef struct s_stack
 {
 	int				value;
@@ -29,13 +27,13 @@ typedef struct s_num_val
 	int bool_a;
 	int bool_b;
 	int val_ran;
-	int	max_num_range;
+	int	max_range;
 }		t_num;
 
-t_list	*ft_lstnew(int content);
+t_list	*ft_lstnew(long content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
-int		ft_atoi(const char *s);
+long	ft_atoi(const char *s);
 int		ft_lstsize(t_list *lst);
 void	zero_bool_list(t_list **list);
 void	zero_range_list(t_list **list);
@@ -72,6 +70,5 @@ void	search_best_option(t_list **list_a, t_list **list_b, t_num *num);
 int		nearest_index(t_list **list_a, t_num *num, int index_b);
 void	stack_scrolling(t_list **list, t_num *num);
 void	sorting_3(t_list **a);
-void	parser(t_list **a, char **str);
 
 # endif

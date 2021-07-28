@@ -4,7 +4,7 @@ void	rrr(t_list **a, t_list **b)
 {
 	rra(a, 0);
 	rrb(b, 0);
-	write(1, "rrr\n", 4); //удалить
+	write(1, "rrr\n", 4);
 }
 
 void	rrr_rr(t_list **list_a, t_list **list_b, t_num *num)

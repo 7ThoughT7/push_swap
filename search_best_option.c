@@ -24,7 +24,6 @@ void	best_way(t_list **list_a, t_list **list_b, t_num *num)
 
 	tmp1 = *list_a;
 	tmp2 = *list_b;
-	index = 0;
 	while (tmp2)
 	{
 		len = ft_lstsize(*list_a);
@@ -39,12 +38,6 @@ void	best_way(t_list **list_a, t_list **list_b, t_num *num)
 		tmp2->steps = tmp1->num_range + tmp2->num_range;
 		tmp2 = tmp2->next;
 	}
-//	while (*list_b)   /* удалить */
-//	{
-//		printf("\nvalue:%d ", (*list_b)->value);
-//		printf("steps:%d ", (*list_b)->steps);
-//		(*list_b) = (*list_b)->next;
-//	}
 }
 
 void	marking(t_list **list)
@@ -71,24 +64,10 @@ void	marking(t_list **list)
 		tmp->num_range = i--;
 		tmp = tmp->next;
 	}
-//	while (*list)					/* удалить */
-//	{
-//		printf("\nvalue:%d ", (*list)->value);
-//		printf("num_range:%d ", (*list)->num_range);
-//		printf("bool:%d ", (*list)->bool_v);
-
-//		printf("index:%d", (*list)->index);
-//		(*list) = (*list)->next;
-//	}
 }
 
 void	search_best_option(t_list **list_a, t_list **list_b, t_num *num)
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
-
-	tmp1 = *list_a;
-	tmp2 = *list_b;
 	while ((*list_b) != NULL)
 	{
 		marking(list_a);
