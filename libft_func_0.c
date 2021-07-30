@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_list	*ft_lstnew(long content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*new;
 
@@ -50,11 +50,11 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-long	ft_atoi(const char *s)
+int	ft_atoi(const char *s)
 {
 	int		i;
-	long 	sign;
-	long	n;
+	int 	sign;
+	int 	n;
 
 	i = 0;
 	sign = 1;
@@ -75,5 +75,5 @@ long	ft_atoi(const char *s)
 				error();
 		}
 	}
-	return (n * sign);
+	return ((int)n * sign);
 }

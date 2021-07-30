@@ -1,25 +1,17 @@
 #include "push_swap.h"
 
-void	ft_lstclear(t_list **lst)
-{
-	t_list	*tmp;
-
-	if (!lst || !*lst)
-		return ;
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		if (*lst)
-		{
-			free(*lst);
-			*lst = NULL;
-		}
-		*lst = tmp;
-	}
-}
-
-void	error(void)
-{
-	write(1, "ERROR\n", 6);
-	exit(0);
-}
+//char	*ft_strchr(const char *s, int c)
+//{
+//	int	i;
+//
+//	i = 0;
+//	while (s[i])
+//	{
+//		if (s[i] == (unsigned char)c)
+//			return ((char *)s + i);
+//		i++;
+//	}
+//	if (c == '\0')
+//		return ((char *)s + i);
+//	return (NULL);
+//}
