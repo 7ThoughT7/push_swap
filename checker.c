@@ -51,13 +51,14 @@ int main(int argc, char **argv)
 {
 	t_list *stack_a;
 	t_list *stack_b;
+	t_num  num;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc == 1)
 		exit(0);
 	read_argv(argc, argv, &stack_a);
-	indexation(&stack_a, num);
+	indexation(&stack_a, &num);
 	check_push_swap(&stack_a, &stack_b);
 	return (0);
 }
