@@ -25,11 +25,12 @@ void	rb(t_list **b, int i)
 
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_list **a, t_list **b, int i)
 {
 	ra(a, 0);
 	ra(b, 0);
-	write(1, "rr\n", 3);
+	if (i == 1)
+		write(1, "rr\n", 3);
 
 }
 

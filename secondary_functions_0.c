@@ -46,18 +46,18 @@ void	sorting_3(t_list **a)
 	temp3 = (*a)->next->next->value;
 	if ((((temp < temp2) && (temp < temp3) && (temp2 > temp3))))
 	{
-		sa(a);
+		sa(a, 1);
 		ra(a, 1);
 	}
 	else if (((temp > temp2) && (temp > temp3) && (temp2 > temp3)))
 	{
 		ra(a, 1);
-		sa(a);
+		sa(a, 1);
 	}
 	else if (((temp > temp2) && (temp > temp3) && (temp2 < temp3)))
 		ra(a, 1);
 	else if (((temp > temp2) && (temp2 < temp3) && (temp < temp3)))
-		sa(a);
+		sa(a, 1);
 	else if ((temp < temp2) && (temp2 > temp3))
 		rra(a, 1);
 }

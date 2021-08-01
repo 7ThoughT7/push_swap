@@ -63,8 +63,7 @@ void	indexation(t_list **list, t_num *num)
 		{
 			if (tmp2->value == min_num)
 			{
-				tmp2->index = index;
-				index++;
+				tmp2->index = index++;
 				break;
 			}
 			tmp2 = tmp2->next;

@@ -80,14 +80,27 @@ void	search_start(t_list **a, t_num *num)
 
 void	push_b(t_list **list_a, t_list **list_b, t_num *num)
 {
-	int	len;
+	int		len;
+	int 	count;
+	t_list	*tmp;
+
+	count = 0;
+	tmp	= *list_a;
 	len = num->len_list;
+	while (tmp)
+	{
+		if (tmp->bool_v == 1)
+			count++;
+		tmp = tmp->next;
+	}
+	if (count == len)
+		return;
 	while (len--)
 	{
 		if ((*list_a)->bool_v == 1)
 			ra(list_a, 1);
 		else
-			pb(list_a, list_b);
+			pb(list_a, list_b, 1);
 	}
 }
 

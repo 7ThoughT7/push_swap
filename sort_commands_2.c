@@ -1,10 +1,11 @@
 #include "push_swap.h"
 
-void	rrr(t_list **a, t_list **b)
+void	rrr(t_list **a, t_list **b, int i)
 {
 	rra(a, 0);
 	rrb(b, 0);
-	write(1, "rrr\n", 4);
+	if (i == 1)
+		write(1, "rrr\n", 4);
 }
 
 void	rrr_rr(t_list **list_a, t_list **list_b, t_num *num)
@@ -14,10 +15,10 @@ void	rrr_rr(t_list **list_a, t_list **list_b, t_num *num)
 	range = min_r(num->step_a, num->step_b);
 	if (num->bool_a == 1)
 		while (range-- > 1)
-			rr(list_a, list_b);
+			rr(list_a, list_b, 1);
 	else
 		while (range-- > 1)
-			rrr(list_a, list_b);
+			rrr(list_a, list_b, 1);
 }
 
 void	rab_or_rrab(t_list **list_a, t_list **list_b, t_num *num)

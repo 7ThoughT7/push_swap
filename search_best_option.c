@@ -12,7 +12,7 @@ void	push_BinA(t_list **list_a, t_list **list_b, t_num *num)
 		ra_or_rra(list_a, num);
 		rb_or_rrb(list_b, num);
 	}
-	pa(list_a, list_b);
+	pa(list_a, list_b, 1);
 }
 
 void	best_way(t_list **list_a, t_list **list_b, t_num *num)
