@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int nearest_index(t_list **list_a, t_num *num, int index_b)
+int	nearest_index(t_list **list_a, t_num *num, int index_b)
 {
 	t_list	*tmp;
 	int		index_a;
@@ -23,9 +23,7 @@ int nearest_index(t_list **list_a, t_num *num, int index_b)
 void	stack_scrolling(t_list **list, t_num *num)
 {
 	int	index;
-	int 	i;
 
-	i = 0;
 	index = (*list)->index;
 	if (index < num->len_list / 2)
 		while ((*list)->index != 0)
@@ -37,9 +35,9 @@ void	stack_scrolling(t_list **list, t_num *num)
 
 void	sorting_3(t_list **a)
 {
-	int temp;
-	int temp2;
-	int temp3;
+	int	temp;
+	int	temp2;
+	int	temp3;
 
 	temp = (*a)->value;
 	temp2 = (*a)->next->value;
@@ -66,7 +64,7 @@ void	min_steps(t_list **list_a, t_list **list_b, t_num *num)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
-	int 	min_step;
+	int		min_step;
 
 	tmp = *list_a;
 	tmp2 = *list_b;

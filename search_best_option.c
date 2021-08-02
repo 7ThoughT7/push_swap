@@ -19,8 +19,8 @@ void	best_way(t_list **list_a, t_list **list_b, t_num *num)
 {
 	t_list	*tmp1;
 	t_list	*tmp2;
-	int 	index;
-	int 	len;
+	int		index;
+	int		len;
 
 	tmp1 = *list_a;
 	tmp2 = *list_b;
@@ -42,8 +42,8 @@ void	best_way(t_list **list_a, t_list **list_b, t_num *num)
 
 void	marking(t_list **list)
 {
-	int len;
-	int	i;
+	int		len;
+	int		i;
 	t_list	*tmp;
 
 	i = 1;

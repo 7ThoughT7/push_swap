@@ -65,4 +65,3 @@ int	min_r(a, b)
 		return (a);
 	return (b);
 }
-

@@ -2,7 +2,6 @@
 
 void	sorting_less_then_5(t_list **a, t_list **b, t_num *num)
 {
-
 	if (num->len_list == 4)
 		push_in_b_for4(a, b, num);
 	else if (num->len_list == 5)
@@ -24,7 +23,7 @@ void	read_argv(int argc, char **argv, t_list **a)
 {
 	int		count;
 	char	**str;
-	char 	**str_2;
+	char	**str_2;
 
 	count = 1;
 	while (--argc)

@@ -29,7 +29,7 @@ void	search_max_range(t_list **list, t_num *num)
 
 void	max_range(t_list **list, t_num *num)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *list;
 	num->max_range = tmp->num_range;
@@ -52,15 +52,15 @@ void	max_range(t_list **list, t_num *num)
 
 void	search_start(t_list **a, t_num *num)
 {
-	int	len;
-	t_list *tmp;
+	int		len;
+	t_list	*tmp;
 
 	tmp = *a;
 	len = num->len_list;
 	while (*a)
 	{
 		if ((*a)->value == num->val_ran && (*a)->num_range == num->max_range)
-			break;
+			break ;
 		*a = (*a)->next;
 	}
 	num->count = (*a)->value;
@@ -81,11 +81,11 @@ void	search_start(t_list **a, t_num *num)
 void	push_b(t_list **list_a, t_list **list_b, t_num *num)
 {
 	int		len;
-	int 	count;
+	int		count;
 	t_list	*tmp;
 
 	count = 0;
-	tmp	= *list_a;
+	tmp = *list_a;
 	len = num->len_list;
 	while (tmp)
 	{
@@ -94,7 +94,7 @@ void	push_b(t_list **list_a, t_list **list_b, t_num *num)
 		tmp = tmp->next;
 	}
 	if (count == len)
-		return;
+		return ;
 	while (len--)
 	{
 		if ((*list_a)->bool_v == 1)
@@ -113,7 +113,7 @@ void	push_list_b(t_list **list_a, t_list **list_b, t_num *num)
 	tmp = *list_a;
 	zero_bool_list(&tmp);
 	search_start(&tmp, num);
-	push_b (list_a,list_b, num);
+	push_b(list_a, list_b, num);
 	search_best_option(list_a, list_b, num);
 	tmp = *list_a;
 }

@@ -5,7 +5,6 @@ t_list	*ft_lstnew(int content)
 	t_list	*new;
 
 	new = (t_list *)malloc(sizeof(t_list));
-
 	if (new == NULL)
 		return (NULL);
 	new->value = content;
@@ -53,8 +52,8 @@ int	ft_isdigit(int c)
 int	ft_atoi(const char *s)
 {
 	int		i;
-	int 	sign;
-	int 	n;
+	long	sign;
+	long	n;
 
 	i = 0;
 	sign = 1;

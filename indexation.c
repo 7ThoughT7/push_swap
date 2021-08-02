@@ -40,7 +40,6 @@ int	min_number(t_list **list, t_num *num)
 		tmp = (*tmp).next;
 		count++;
 	}
-
 	return (min_num);
 }
 
@@ -64,7 +63,7 @@ void	indexation(t_list **list, t_num *num)
 			if (tmp2->value == min_num)
 			{
 				tmp2->index = index++;
-				break;
+				break ;
 			}
 			tmp2 = tmp2->next;
 		}

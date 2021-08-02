@@ -3,7 +3,7 @@
 void	parser(t_list **a, t_list *list)
 {
 	t_list	*tmp;
-	int 	value;
+	int		value;
 
 	tmp = *a;
 	value = list->value;
@@ -67,7 +67,7 @@ void	push_in_b_for5(t_list **a, t_list **b, t_num *num)
 int	sorting_check(t_list **list)
 {
 	t_list	*tmp;
-	int 	count;
+	int		count;
 
 	tmp = *list;
 	count = 0;
@@ -81,7 +81,7 @@ int	sorting_check(t_list **list)
 				count++;
 			}
 			else
-				break;
+				break ;
 		}
 		if (tmp == NULL)
 			return (0);

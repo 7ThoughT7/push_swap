@@ -6,7 +6,6 @@ int	main(int argc, char **argv)
 	t_list	*b;
 	t_num	num;
 
-
 	a = NULL;
 	b = NULL;
 	if (argc == 1)

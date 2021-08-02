@@ -23,16 +23,18 @@ void	rrr_rr(t_list **list_a, t_list **list_b, t_num *num)
 
 void	rab_or_rrab(t_list **list_a, t_list **list_b, t_num *num)
 {
-	int range;
+	int	range;
 
 	range = num->step_a - num->step_b;
 	if (range > 0)
+	{
 		if (num->bool_a == 1)
 			while (range-- > 0)
 				ra(list_a, 1);
 		else
 			while (range-- > 0)
 				rra(list_a, 1);
+	}
 	else if (range < 0)
 	{
 		range *= -1;

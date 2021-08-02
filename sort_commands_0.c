@@ -8,6 +8,8 @@ void	sa(t_list **a, int i)
 
 	list1 = *a;
 	list2 = (*a)->next;
+	if (list2 == NULL)
+		return ;
 	list3 = list2->next;
 	list2->next = list1;
 	list1->next = list3;
@@ -24,6 +26,8 @@ void	sb(t_list **b, int i)
 
 	list1 = *b;
 	list2 = (*b)->next;
+	if (list2 == NULL)
+		return ;
 	list3 = list2->next;
 	list2->next = list1;
 	list1->next = list3;
@@ -34,17 +38,21 @@ void	sb(t_list **b, int i)
 
 void	ss(t_list **a, t_list **b, int i)
 {
-	sa(a, 0);
-	sb(b, 0);
+	if (*a != NULL)
+		sa(a, 0);
+	if (*b != NULL)
+		sb(b, 0);
 	if (i == 1)
 		write(1, "ss\n", 3);
 }
 
 void	pa(t_list **a, t_list **b, int i)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *b;
+	if (tmp == NULL)
+		return ;
 	*b = (*b)->next;
 	tmp->next = *a;
 	*a = tmp;
@@ -54,9 +62,11 @@ void	pa(t_list **a, t_list **b, int i)
 
 void	pb(t_list **a, t_list **b, int i)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *a;
+	if (tmp == NULL)
+		return ;
 	*a = (*a)->next;
 	tmp->next = *b;
 	*b = tmp;
