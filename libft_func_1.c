@@ -59,7 +59,7 @@ void	zero_range_list(t_list **list)
 		*list = tmp;
 }
 
-int	min_r(a, b)
+int	min_r(int a, int b)
 {
 	if (a < b)
 		return (a);
